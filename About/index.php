@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="col-lg-6">
-            <img src="hostel-image.jpg" alt="Hostel Image" class="img-fluid rounded">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/b7/e0/df/here-hostel.jpg" alt="Hostel Image" class="img-fluid rounded">
         </div>
     </div>
 </section>
