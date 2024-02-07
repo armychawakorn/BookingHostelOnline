@@ -1,8 +1,8 @@
 <?php
-require_once('../sql.php');
+require_once('../../sql.php');
 $foodid = $_GET['foodid'];
 $action = $_GET['action'];
-$sql = "SELECT * FROM food WHERE FoodID = ?";
+$sql = "SELECT * FROM food WHERE Id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $foodid);
 $stmt->execute();
@@ -15,11 +15,11 @@ if ($result->num_rows > 0) {
         $price = $row['Price'];
         $isactivate = $row['IsActivate'];
     } else if ($action === 'delete') {
-        $sql = "DELETE FROM food WHERE FoodID = ?";
+        $sql = "DELETE FROM food WHERE Id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $foodid);
         $stmt->execute();
-        header('Location: /BookingHostelOnline/Admin/dashboard.php?page=managefood');
+        header('Location: /BookingHostelOnline/Admin/dashboard.php?page=foods');
         exit();
     }
 }

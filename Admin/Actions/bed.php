@@ -7,7 +7,7 @@ if ($action === 'delete') {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $bedid);
     $stmt->execute();
-    header('Location: /BookingHostelOnline/Admin/Pages/room.php');
+    header('Location: /BookingHostelOnline/Admin/dashboard.php?page=room');
     exit();
 } else if ($action === 'edit') {
     $sql = "SELECT * FROM bed WHERE BedID = ?";

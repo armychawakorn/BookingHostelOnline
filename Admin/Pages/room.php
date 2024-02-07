@@ -35,7 +35,7 @@ $result = $conn->query($sql);
                     <td class="pt-4"><?php echo $row['RoomType']; ?></td>
                     <td class="pt-4"><?php echo $row['Price']; ?></td>
                     <td class="pt-4"><?php echo $row['IsActivate']; ?></td>
-                    <td><a href="/BookingHostelOnline/Admin/Actions/bed.php?bedid=<?php echo $row['BedID']; ?>&action=edit" class="btn btn-info">Edit</a> <a href="/BookingHostelOnline/Admin/Actions/bed.php?bedid=<?php echo $row['BedID']; ?>&action=delete" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/BookingHostelOnline/Admin/Actions/bed.php?bedid=<?php echo $row['BedID']; ?>&action=delete" class="btn btn-danger">Delete</a></td>
                 </tr>
             <?php
             }
