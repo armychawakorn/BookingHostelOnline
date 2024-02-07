@@ -57,6 +57,9 @@
                             case "addroom":
                                 require_once('./Pages/addroom.php');
                                 break;
+                            case "addfood":
+                                require_once('./Pages/addfood.php');
+                                break;
                             default:
                                 require_once('./Pages/booking.php');
                                 break;

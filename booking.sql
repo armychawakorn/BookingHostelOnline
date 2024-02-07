@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   KEY `FK_booking_member` (`MemberId`) USING BTREE,
   CONSTRAINT `FK_booking_bed` FOREIGN KEY (`BedId`) REFERENCES `bed` (`BedID`),
   CONSTRAINT `FK_booking_member` FOREIGN KEY (`MemberId`) REFERENCES `member` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Data exporting was unselected.
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `bookingmeal` (
   CONSTRAINT `FK_bookingmeal_bookingdetail` FOREIGN KEY (`BookingCode`) REFERENCES `bookingdetail` (`BookingCode`),
   CONSTRAINT `FK_bookingmeal_foods` FOREIGN KEY (`FoodId`) REFERENCES `food` (`Id`),
   CONSTRAINT `FK_bookingmeal_member` FOREIGN KEY (`MemberId`) REFERENCES `member` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Data exporting was unselected.
 
@@ -94,16 +94,16 @@ CREATE TABLE IF NOT EXISTS `food` (
   `Description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'รายละเอียดอาหาร',
   `Price` int NOT NULL DEFAULT (0) COMMENT 'ราคา',
   `Picture` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'รูป',
-  `IsActive` bit(1) NOT NULL COMMENT 'สถานะ',
+  `IsActive` int NOT NULL DEFAULT '0' COMMENT 'สถานะ',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Data exporting was unselected.
 
 -- Dumping structure for table hostel.member
 CREATE TABLE IF NOT EXISTS `member` (
   `Username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'ชื่อผู้ใช้',
-  `Password` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'พาสเวิร์ด',
+  `Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'พาสเวิร์ด',
   `FirstName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'ชื่อ',
   `LastName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'นามสกุล',
   `Email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'e-mail',
@@ -117,9 +117,8 @@ CREATE TABLE IF NOT EXISTS `member` (
 
 -- Dumping structure for table hostel.systemuser
 CREATE TABLE IF NOT EXISTS `systemuser` (
-  `Id` int NOT NULL COMMENT 'รหัสพนักงาน',
   `Username` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'ชื่อผู้ใช้',
-  `Password` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'พาสเวิร์ด',
+  `Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'พาสเวิร์ด',
   PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

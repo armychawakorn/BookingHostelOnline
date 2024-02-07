@@ -22,9 +22,9 @@
     }
     $bookingcode = $_GET['bookingcode'];
     require_once('../sql.php');
-    $sql = "SELECT * FROM booking as bk, bed as b, member as m WHERE bk.BookingCode = ? AND b.BedID = bk.BedId AND m.Username = bk.MemberId;";
+    $sql = "SELECT * FROM booking as bk, bed as b, member as m WHERE bk.BookingCode = ? AND b.BedID = bk.BedId AND m.Username = bk.MemberId AND bk.MemberId = ?;";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $bookingcode);
+    $stmt->bind_param("ss", $bookingcode, $_SESSION['username']);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();

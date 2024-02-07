@@ -24,7 +24,7 @@
         require_once('../sql.php');
         $sql = "SELECT * FROM booking WHERE MemberId = ? AND BookingStatus = 0";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $_SESSION['username']);
+        $stmt->bind_param("s", $_SESSION['username']);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result->num_rows > 0) {

@@ -11,6 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssss", $_GET['bookingcode'], $_GET['bedid'], $_GET['checkindate'], $_GET['checkoutdate']);
         $stmt->execute();
+        $sql = "UPDATE bed SET IsActivate = 1 WHERE BedID = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $_GET['bedid']);
+        $stmt->execute();
         header('Location: /BookingHostelOnline/Admin/Pages/bookingdetails.php');
         exit();
     }
