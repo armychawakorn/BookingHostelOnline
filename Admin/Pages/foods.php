@@ -1,6 +1,6 @@
 <?php
-if (!isset($_SESSION['username'])) {
-    header('Location: ../../Login');
+if (!isset($_SESSION['admin'])) {
+    header('Location: /BookingHostelOnline/Admin/');
     exit();
 }
 ?>
@@ -34,7 +34,8 @@ if (!isset($_SESSION['username'])) {
                     <td><img src="<?php echo $row['Picture']; ?>" alt="<?php echo $row['FoodName']; ?>" width="100" height="100"></td>
                     <td class="pt-4"><?php echo $row['Price']; ?></td>
                     <td class="pt-4"><?php echo $row['IsActive']; ?></td>
-                    <td class="pt-5"><a href="/BookingHostelOnline/Admin/Actions/managefood.php?foodid=<?php echo $row['Id']; ?>&action=delete" class="btn btn-danger">Delete</a></td>
+                    <td class="pt-5"><a href="/BookingHostelOnline/Admin/Actions/managefood.php?foodid=<?php echo $row['Id']; ?>&action=update" class="btn btn-info">edit</a> <a href="/BookingHostelOnline/Admin/Actions/managefood.php?foodid=<?php echo $row['Id']; ?>&action=delete" class="btn btn-danger">Delete</a></td>
+                </tr>
             <?php
             }
             ?>

@@ -1,6 +1,6 @@
 <?php
-if (!isset($_SESSION['username'])) {
-    header('Location: /BookingHostelOnline/Login');
+if (!isset($_SESSION['admin'])) {
+    header('Location: /BookingHostelOnline/Admin/');
     exit();
 }
 require_once('../sql.php');
@@ -40,3 +40,6 @@ $result = $conn->query($sql);
                 }
             }
             ?>
+        </tbody>
+    </table>
+</div>
